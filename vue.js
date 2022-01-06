@@ -14,14 +14,16 @@ const App = {
   },
   methods: {
     prev() {
-      this.activeIndex--
+      if (this.activeIndex !== 0) {
+        this.activeIndex--
+      }
     },
     reset() {
       this.activeIndex = 0
       this.isDone = false
     },
     nextOrFinish() {
-      if (this.activeIndex === this.steps.length - 1) {
+      if (this.isLastStep) {
         this.isDone = true
       } else {
         this.activeIndex++
@@ -38,11 +40,9 @@ const App = {
     isActivePrev() {
       return this.activeIndex > 0
     },
-    nextButtonLabel() {
+    isLastStep() {
       return this.activeIndex === this.steps.length - 1
-        ? 'Закончить'
-        : 'Вперед'
-    },
+    }
   }
 }
 

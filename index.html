@@ -52,7 +52,7 @@
             class="btn primary"
             @click="nextOrFinish"
           >
-            {{nextButtonLabel}}
+            {{isLastStep ? 'Закончить': 'Вперед'}}
           </button>
         </div>
       </div>
